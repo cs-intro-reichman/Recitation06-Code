@@ -1,8 +1,8 @@
 public class StdLibMain {
     public static void main(String[] args) {
-    
-        while (StdIn.hasNextChar()){
-            StdOut.println(StdIn.readInt());	
+        In in = new In("./data.txt");
+        while (in.hasNextChar()){
+            StdOut.println(in.readInt());	
         }
     }
     
