@@ -26,21 +26,20 @@ public class Battleships {
         while (sunk < N){
             StdOut.println("enter your guess:");
             userX = in.readInt();
-            userY = in.readInt();
-                
-                //check if the coordinates are within the board
-                if (userX < N && userX >= 0 && userY < N && userY >= 0){
-                    //if a battleship is in the coordinates update the data
-                    if (subs[userX][userY]){
-                        StdOut.println("You sunk my battleship, good job.");
-                        sunk++;
-                        subs[userX][userY] = false;
-                    } else {
-                        StdOut.println("Nothing here, only water.");
-                    }
+            userY = in.readInt();    
+            //check if the coordinates are within the board
+            if (userX < N && userX >= 0 && userY < N && userY >= 0){
+                //if a battleship is in the coordinates update the data
+                if (subs[userX][userY]){
+                    StdOut.println("You sunk my battleship, good job.");
+                    sunk++;
+                    subs[userX][userY] = false;
                 } else {
-                    StdOut.println("Illegal coordinates, try again.");
+                    StdOut.println("Nothing here, only water.");
                 }
+            } else {
+                StdOut.println("Illegal coordinates, try again.");
+            }
             StdOut.println();
         }
         StdOut.println("VICTORY!!!!!!");
