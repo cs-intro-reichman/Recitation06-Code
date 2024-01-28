@@ -4,6 +4,10 @@
 - PPM Format
 - Image Proccessing
 - The Color Class
+- Exceptions
+- Assertions & Preconditions
+- Unit testing
+- Review
 
 ### Note: The codes have the solutions only for the exact question you should visit the slides
 
@@ -12,10 +16,13 @@
 ## Utils 
 ### data.txt
 ### Mine.png
+### lib
+
+## Std Libs
+### In.java
 ### StdAudio.java
-### StdIn.java
-### StdOut.java
 ### StdDraw.java
+### StdOut.java
 ### StdRandom.java
 
 ## Input/Output
@@ -31,3 +38,22 @@
 
 ## The Color class
 ### Colors.java 
+
+## Exceptions
+### ExceptionExamples.java 
+
+## Assertions & Preconditions
+### AssertionsExamples.java 
+### PreconditionsExamples.java
+
+## Unit Testing
+### libs - folder (DON'T touch)
+### AssertionsExamples.java (for the factorial function)
+### ASCIIPractice.java 
+### Recitation06Test.java
+
+## Mid-term review 
+### Compressed.java
+### Hex.java
+### Mystery.java
+
