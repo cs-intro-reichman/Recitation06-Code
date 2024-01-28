@@ -1,6 +1,12 @@
 import java.awt.Color;
 
 public class Picture {
+    public static final int NUM_COLORS = 3;
+    public static final int RED_POSITION = 0;
+    public static final int GREEN_POSITION = 1;
+    public static final int BLUE_POSITION = 2;
+    public static final int MAX_INTENSITY = 255;
+    
     public static boolean isImage(int[][][] image) {
         int rowLength = image[0].length;
         
@@ -12,12 +18,12 @@ public class Picture {
     
             for (int j = 0; j < rowLength; j++) {
                 //check if each inner array represents a pixel 
-                if (image[i][j].length != 3) {
+                if (image[i][j].length != NUM_COLORS) {
                     return false;
                 }
     
                 for (int k = 0; k <= image[i][j].length; k++) {
-                    if (image[i][j][k] < 0 || image[i][j][k] > 255) {
+                    if (image[i][j][k] < 0 || image[i][j][k] > MAX_INTENSITY) {
                         return false;
                     }
                 } 
@@ -31,11 +37,11 @@ public class Picture {
 	* @return the inverted image
 	*/
 	public static int[][][] invertAll(int[][][] pic){
-		pic = invertColor(pic, 0);
-		pic = invertColor(pic, 1);
-		pic = invertColor(pic, 2);
+		pic = invertColor(pic, RED_POSITION);
+		pic = invertColor(pic, GREEN_POSITION);
+		pic = invertColor(pic, BLUE_POSITION);
 		return pic;
-	}
+	}   
     /**
 	* inverts one color of an image.
 	* @param pic - the picture to be inverted
@@ -43,7 +49,7 @@ public class Picture {
 	* @return the inverted image
 	*/
 	public static int[][][] invertColor(int[][][] pic, int color){
-		int[][][] ans = new int[pic.length][pic[0].length][3];
+		int[][][] ans = new int[pic.length][pic[0].length][NUM_COLORS];
 		
 		for (int i = 0; i < ans.length; i++) {
 			for (int j = 0; j < ans[0].length; j++) {
@@ -60,7 +66,7 @@ public class Picture {
 	*/
 	public static int[] invertPixel(int[] pixel, int color){
 		int[] ans = {pixel[0], pixel[1], pixel[2]};
-		ans[color] = 255 - pixel[color];
+		ans[color] = MAX_INTENSITY - pixel[color];
 		return ans;
 	}
 
@@ -73,7 +79,7 @@ public class Picture {
     public static void write(Color[][] pic){
         StdOut.println("P3");
         StdOut.println("" + pic[0].length + " " + pic.length);
-        StdOut.println(255);
+        StdOut.println(MAX_INTENSITY);
         for (int i = 0; i < pic.length; i++){
             for (int j = 0; j < pic[0].length; j++){
                 StdOut.print("" + pic[i][j].getRed() + " " + 
